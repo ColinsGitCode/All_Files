@@ -19,5 +19,16 @@ VBA 教程
     String      字符串                   $                           0-65400（字符长度）
 	Byte        字节型                                                1
 	Boolean     布尔型                                                2
-	Integer     
+	Integer     整数型                   %                            2
+	Long        长整型                   &                            4
+	Single      单精度                   ！                           4
+	Double      双精度                   #                            8
+	Date        日期型                                                8
+	Currency    货币型                   @                            8
+	Decimal     小数点型                                              14
+	Variant     变体型                                                以上类型可变
+	Object      对象型                                                4
+	
+4，变量与常量
+   
   
