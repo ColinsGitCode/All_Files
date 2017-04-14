@@ -1,0 +1,52 @@
+文件操作
+
+    1, 文件
+          Dir[(pathname[,attributes])] ；    'pathname   可选参数，用来指定文件名的字符串表达式，可能包含目录或文件夹、
+		                                     '                     以及驱动器。如果没有找到  pathname，则会返回零长度字符串 ("");
+                                             'attributes 可选参数。常数或数值表达式，其总和用来指定文件属性。
+											 '                     如果省略，则会返回匹配 pathname 但不包含属性的文件。
+
+    2, 删除
+          Kill pathname     '从磁盘中删除文件, pathname 参数是用来指定一个文件名
+          RmDir pathname    '从磁盘中删除目录，pathname 参数是用来指定一个文件夹
+		  
+		  
+    3, 打开
+           Open pathname For mode [Access access] [lock] As [#]filenumber [Len=reclength]  '能够对文件输入/输出 (I/O)。
+                          pathname     '必要。字符串表达式，指定文件名，该文件名可能还包括目录、文件夹及驱动器。
+                          mode         '必要。关键字，指定文件方式，有 Append、Binary、Input、Output、或 Random 方式。如果未指定方式，
+						               '      则以 Random 访问方式打开文件。
+                          access       '可选。关键字，说明打开的文件可以进行的操作，有 Read、Write、或 ReadWrite 操作。
+                          lock         '可选。关键字，说明限定于其它进程打开的文件的操作，有 Shared、LockRead、LockWrite、和 Lock Read Write 操作。
+                          filenumber   '必要。一个有效的文件号，范围在 1 到 511 之间。使用 FreeFile 函数可得到下一个可用的文件号。 reclength 可选。
+						               '      小于或等于 32，767（字节）的一个数。对于用随机访问方式打开的文件，该值就是记录长度。对于顺序文件，
+									   '	  该值就是缓冲字符数。
+											 
+                          说明         对文件做任何 I/O 操作之前都必须先打开文件。Open  语句分配一个缓冲区供文件进行I/O 之用，并决定缓冲区所使用的访问方式。
+						               如果 pathname 指定的文件不存在，那么，在用Append、Binary、Output、或 Random 方式打开文件时，可以建立这一文件。
+							           如果文件已由其它进程打开，而且不允许指定的访问类型，则 Open 操作失败，而且会有错误发生。如果 mode是 Binary 方式，
+							           则 Len 子句会被忽略掉。
+                          重要         在 Binary、Input 和 Random 方式下可以用不同的文件号打开同一文件，而不必先将该文件关闭。在 Append 和 Output 方式下，
+						               如果要用不同的文件号打开同一文件，则必须在打开文件之前先关闭该文件。
+
+    4,读入
+          Input #filenumber, varlist                   '从已打开的顺序文件中读出数据并将数据指定给变量
+          Get [#]filenumber, [recnumber], varname      '将一个已打开的磁盘文件读入一个变量之中。
+          
+    5,写入
+          Write #filenumber, [outputlist]              '将数据写入顺序文件
+          Print #filenumber, [outputlist]              '将格式化显示的数据写入顺序文件中
+          Put [#]filenumber, [recnumber],              'varname 将一个变量的数据写入磁盘文件中。
+
+    6,关闭
+          Close [filenumberlist]                       '关闭 Open 语句所打开的输入/输出 (I/O) 文件
+          注意      如果今后想用 Input # 语句读出文件的数据，就要用 Write # 语句而不用 Print # 语句将数据写入文件。因为在使用 Write# 时，
+		            将数据域分界就可确保每个数据域的完整性，因此可用 Input# 再将数据读出来。使用 Write#  还能确保任何地区的数据都被正确读出。
+					Write与 Print # 语句不同，当要将数据写入文件时，Write # 语句会在项目和用来标记字符串的引号之间插入逗号。
+					Write # 语句在将 outputlist 中的最后一个字符写入文件后会插入一个新行字符，即回车换行符，(Chr(13) + Chr(10))。
+          
+    7,其他文件函数
+          LOF(filenumber)   '返回一个 Long，表示用 Open 语句打开的文件的大小，该大小以字节为单位。
+          EOF(filenumber)   '返回一个 Integer，它包含 Boolean 值 True，表明已经到达为 Random 或顺序 Input 打开的文件的结尾。
+          Loc(filenumber)   '返回一个 Long，在已打开的文件中指定当前读/写位置
+          Seek(filenumber)  '返回一个 Long，在 Open 语句打开的文件中指定当前的读/写位

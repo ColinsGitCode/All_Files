@@ -1,0 +1,189 @@
+VBA 教程
+
+1，常用保留字 
+   public，private，dim，goto，next，with，integer，single
+   
+2，运算符
+   （1）赋值运算符  =
+   （2）数学运算符 &、+ (字符连接符)、+(加)、-（减）、Mod（取余）、\（整除）、*（乘）、/（除）、-（负号）、^（指数）  
+   （3）逻辑运算符Not（非）、And（与）、Or(或)、Xor(异或)、Eqv(相等)、Imp(隐含)  
+   （4）关系运算符 = （相同）、<>（不等）、>（大于）、<（小于）、>=（不小于）、<=（不大于）、Like、Is  
+   （5）位运算符  Not（逻辑非）、And（逻辑与）、Or（逻辑或）、Xor（逻辑异或）、Eqv（逻辑 等）、Imp（隐含）
+   
+3，VBA共有12种数据类型
+    数据类型                        类型标识符                      字节
+    String      字符串                   $                           0-65400（字符长度）
+	Byte        字节型                                                1
+	Boolean     布尔型                                                2
+	Integer     整数型                   %                            2
+	Long        长整型                   &                            4
+	Single      单精度                   ！                           4
+	Double      双精度                   #                            8
+	Date        日期型                                                8
+	Currency    货币型                   @                            8
+	Decimal     小数点型                                              14
+	Variant     变体型                                                以上类型可变
+	Object      对象型                                                4
+	
+4，变量与常量
+   Dim      var as Type  '局部变量
+   private  var as Type  '私有变量
+   Public   var as Type  '公有变量
+   Global   var as Type  '全局变量
+   Static   var as Type  '静态变量
+   
+   Const    var as Type  '常量
+   
+5，数组
+   Dim arrayName() as Type
+   除了以上固定数组外，VBA 还有一种功能强大的动态数组，定义时无大小维数声明；在程序中再利用Redim语句来重新改变数组大小，
+   原来数组内容可以通过加preserve关键字来保留。
+   如下例：
+   Dim array1() as double : Redim array1(5) : array1(3)=250 : Redim preserve array1(5,10)   
+  
+6, 注释
+   注释语句是用来说明程序中某些语句的功能和作用；VBA中有两种方法标识为注释语句。
+   √单引号 ’  ;如：’定义全局变量；可以位于别的语句之尾，也可单独一行
+   √Rem ;如：Rem定义全局变量；只能单独一行
+   
+7，书写规范
+   （1）VBA不区分标识符的字母大小写，一律认为是小写字母；
+   （2）一行可以书写多条语句，各语句之间以冒号 :  分开；
+   （3）一条语句可以多行书写，以空格加下划线 _  来标识下行为续行；   
+   （4）标识符最好能简洁明了，不造成歧义。
+   
+8，If 选择语句
+       If Number < 10  Then
+         Digits = 1
+       ElseIf Number < 100  Then
+            Digits = 2
+       Else
+            Digits = 3
+       End If
+	   
+9， Select Case…Case…End Case  选择语句
+        Select Case  Pid
+           Case  “A101”
+           Price=200
+           Case  “A102”
+           Price=300
+           ……
+           Case Else
+           Price=900
+        End Case
+		
+10，choose 函数
+    choose(index, choce-1,choice-2,…,choice-n)，可以用来选择自变量串列中的一个值，
+    并将其返回，index 必要参数，数值表达式或字段，它的运算结果是一个数值，
+    且界于 1 和可选择的项目数之间。choice 必要参数，Variant表达式，
+    包含可选择项目的其中之一。如：GetChoice = Choose(Ind, "Speedy", "United", "Federal")
+		
+11，Switch函数
+    Switch(expr-1, value-1[, expr-2, value-2 _ [, expr-n,value-n]])switch 函数和 Choose 函数类似，
+    但它是以两个一组的方式返回所要的值，在串列中，最先为TRUE 的值会被返回。 expr 必要参数，
+    要加以计算的 Variant 表达式。value 必要参数。如果相关的表达式为 True，
+    则返回此部分的数值或表达式，没有一个表达式为 True，Switch 会返回一个 Null值。
+
+12，循环语句
+    （1）For Next语句  以指定次数来重复执行一组语句
+          For counter = start To end [Step step]                     'step 缺省值为1
+          [statements]                                               '
+          [Exit For]                                                 '
+          [statements]                                               '
+          Next [counter]                                             '
+                                                                     '
+          如1：                                                      '
+          For Words = 10 To 1 Step  -1                               '建立 10 次循环 
+                For Chars = 0 To 9                                   '建立 10 次循环
+                     MyString = MyString & Chars                     '将数字添加到字符串中
+                Next Chars                                           'Increment counter
+                MyString = MyString & " "                            '添加一个空格
+          Next  Words
+
+    （2）For Each…Next 语句  主要功能是对一个数组或集合对象进行，让所有元素重复执行一次语句
+          For Each element In  group
+          Statements
+          [Exit for]
+          Statements
+          Next  [element]
+          
+          如1：
+          For Each rang2 In  range1
+               With range2.interior
+                       .colorindex=6
+                       .pattern=xlSolid
+               End with
+          Next
+		  
+         这上面一例中用到了 With…End With  语句，目的是省去对象多次调用，加快速度；
+          语法为：
+          With object
+          [statements]
+          End With
+
+    （3）Do…loop语句 在条件为true时，重复执行区块命令
+
+         Do {while |until} condition           ' while 为当型循环，until为直到型循环，顾名思义，不多说啦
+         Statements
+         Exit do
+         Statements
+         Loop
+         
+         或者使用下面语法：
+         Do                                    ' 先do 再判断，即不论如何先干一次再说
+         Statements
+         Exit do
+         Statements
+         Loop {while |until} condition
+		 
+13，其他循环语句
+    结构化程序使用以上判断和循环语句已经足够，建议不要轻易使用下面的语句，虽然 VBA 还支持。
+     （1）Goto line 该语句为跳转到line语句行
+     （2）On expression gosub destinatioinlist 或者 on expression goto destinationlist 语句为根据 exprssion表达式值来跳转到所要的行号或行标记
+     （3）Gosub line…line…Return语句，  Return 返回到 Gosub line行，如下例：
+                Sub gosubtry()
+                      Dim num
+                      Num=inputbox(“输入一个数字，此值将会被判断循环”)
+                      If num>0 then Gosub Routine1 ：Debug.print num：Exit  sub
+                      Routine1:
+                      Num=num/5
+                      Return
+                End sub
+
+     （4）while…wend语句，只要条件为TRUE，循环就执行，这是以前VB老语法保留下来的，如下
+             例：
+             while condition       ‘while I<50
+               [statements]        ‘I=I+1
+             wend                  ‘Wend
+			 
+14，错误处理
+        执行阶段有时会有错误的情况发生，利用OnError语句来处理错误，启动一个错误的处理程序。
+        语法如下：
+                 On Error Goto Line        '当错误发生时，会立刻转移到line行去
+                 On Error Resume Next      '当错误发生时，会立刻转移到发生错误的下一行去
+                 On Erro Goto 0            '当错误发生时，会立刻停止过程中任何错误处理过程
+
+
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
