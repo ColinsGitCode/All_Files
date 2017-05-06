@@ -1,4 +1,9 @@
 #---------------------------------------------------------------
 #   Pearson Correlation Coefficient
 #---------------------------------------------------------------
-def PearsonCorrelationCoefficient
+
+def CreatRatingsMatrix(Line,Row):
+    
+def ReadRatingMatrix(FileName):
+
+def PearsonCorrelationCoefficient(Matrix,LineA,LineB):
