@@ -1,5 +1,5 @@
-import matplotlib
-matplotlib.use('Agg')
+#  import matplotlib
+#  matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -29,5 +29,6 @@ for i,txt in enumerate(lTestSize):
 #  plt.scatter(2,1)
 #  x = np.linspace(0, 2*np.pi, 50)
 #  plt.plot(x, np.sin(x))
-plt.savefig('TestCase')
+#  plt.savefig('TestCase')
+plt.show()
 
