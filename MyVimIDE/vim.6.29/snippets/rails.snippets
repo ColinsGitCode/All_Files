@@ -1,0 +1,261 @@
+# 控制器
+snippet _bfa    在路由执行前执行
+	before_action :${0}
+snippet _afa    在路由执行后执行
+	after_action :${0}
+snippet _ara    环绕路由执行
+	around_action :${0}
+snippet _rsf    自定义异常出错页面
+	rescue_from ${1}, with: :${0}
+snippet _rst    响应请求
+	respond_to ${0}
+snippet _rdt    转向
+	redirect_to ${0}
+snippet _pa     参数数组
+	params[:${0}]
+snippet _par    安全获取参数
+	params.require(:${1}).permit(${0})
+snippet _la     指定布局
+	layout '${0}'
+snippet _re     渲染模版
+	render ${0}
+# 模型
+snippet _ho     一对一
+	has_one :${0}
+snippet _hm     一对多
+	has_many :${0}
+snippet _bt     多对一
+	belongs_to :${0}
+snippet _va     数据验证
+	validates :${0}
+snippet _vaa    需要同时验证关联的模型
+	validates_associated :${0}
+snippet _vap    非空验证
+	validates_presence_of :${0}
+snippet _val    长度验证
+	validates_length_of :${0}
+snippet _van    数字验证
+	validates_numericality_of :${0}
+snippet _vau    唯一验证
+	validates_uniqueness_of :${0}
+snippet _vaf    格式验证
+	validates_format_of :${0}
+snippet _vai    确保是某些值
+	validates_inclusion_of :${0}
+snippet _vae    确保不是某些值
+	validates_exclusion_of :${0}
+snippet _len    指定长度
+	length: { ${0} }
+snippet _min    最小长度
+	minimum: ${0}
+snippet _max    最大长度
+	maximum: ${0}
+snippet _aln    是否允许为nil
+	allow_nil: ${0}
+snippet _alb    是否允许为空
+	allow_blank: ${0}
+snippet _msg    设定验证失败时的错误信息
+	message: ${0}
+snippet _dep    删除时把依赖项也一并删除
+	dependent: :destroy${0}
+snippet _pre    必须有值
+	presence: true${0}
+snippet _uni    必须唯一
+	uniqueness: true${0}
+snippet _cs     是否大小写敏感
+	case_sensitive: false${0}
+snippet _acc    需要接受
+	acceptance: true${0}
+snippet _conf   需要对应的确认字段value一致
+	confirmation: true${0}
+snippet _in     必须包含xxx
+	inclusion: { in: ${0} }
+snippet _ex     必须不包含xxx
+	exclusion: { in: ${0} }
+snippet _num    只能是数值
+	numericality: ${0}
+snippet _fk     指定外键
+	foreign_key: :${0}
+snippet _bfv    在验证前执行
+	before_validation :${0}
+snippet _afv    在验证后执行
+	after_validation :${0}
+snippet _bfc    在创建前执行
+	before_create :${0}
+snippet _afc    在创建后执行
+	after_create :${0}
+snippet _bfu    在更新前执行
+	before_update :${0}
+snippet _afu    在更新后执行
+	after_update :${0}
+snippet _bfs    在保存前执行
+	before_save :${0}
+snippet _afs    在保存后执行
+	after_save :${0}
+snippet _bfd    在删除前执行
+	before_destroy :${0}
+snippet _afd    在删除后执行
+	after_destroy :${0}
+# 迁移
+snippet _fch    change方法
+	def change
+	  ${0}
+	end
+snippet _fup    up方法
+	def up
+	  ${0}
+	end
+snippet _fdw    down方法
+	def down
+	  ${0}
+	end
+snippet _rev    可逆数据库变更
+	reversible do |${1}|
+	  ${0}
+	end
+snippet _crt    创建数据库
+	create_table :${1} do |t|
+	  ${0}
+	end
+snippet _cht    改变数据库
+	change_table :${1} do |t|
+	  ${0}
+	end
+# 测试
+snippet _test   测试区块
+	test '${1}' do
+	  ${0}
+	end
+snippet _as     断言
+	assert ${0}
+snippet _ase    相等性测试
+	assert_equal ${0}
+snippet _asne   不等性测试
+	assert_not_equal ${0}
+snippet _asr    响应测试
+	assert_response ${0}
+snippet _ass    包含测试
+	assert_select ${0}
+snippet _asd    差异测试
+	assert_difference ${0}
+snippet _v?     合法？
+	valid?${0}
+snippet _iv?    不合法？
+	invalid?${0}
+# 配置
+snippet _res    资源路由
+	resources :${0}
+snippet _mem    归属于单个资源的路由
+	member do
+	  ${0}
+	end
+snippet _col    归属于一组资源的路由
+	collection do
+	  ${0}
+	end
+snippet _sc     存放在某个子文件夹下的路由，但该子文件夹的名字不出现在URL里面
+	scope module: '${1}' do
+	  ${0}
+	end
+snippet _ns     命名空间（和scope类似，但命名空间的名字会出现在URL里面）
+	namespace :${1} do
+	  ${0}
+	end
+# 常量
+snippet _dev    开发环境
+	development${0}
+snippet _t      测试环境
+	test${0}
+snippet _prod   生产环境
+	production${0}
+# 判断运行环境
+snippet _env    运行环境
+	Rails.env${0}
+snippet _ifd    开发环境 [单行]
+	if Rails.env.development?${0}
+snippet _ifd.   开发环境 [多行]
+	if Rails.env.development?
+	  ${0}
+	end
+snippet _ift    测试环境 [单行]
+	if Rails.env.test?${0}
+snippet _ift.   测试环境 [多行]
+	if Rails.env.test?
+	  ${0}
+	end
+snippet _ifp    生产环境 [单行]
+	if Rails.env.production?${0}
+snippet _ifp.   生产环境 [多行]
+	if Rails.env.production?
+	  ${0}
+	end
+# 常用辅助方法
+snippet _sk     将一个Hash的键名全部转成Symbol
+	symbolize_keys${0}
+snippet _pk     从数据库取数据时，只取某些字段，并将这些字段值汇集成一个数组 [Rails5.0 开始支持普通数组]
+	pluck(:${0})
+snippet _db     添加调试断点
+	debugger${0}
+snippet _auth   验证密码
+	authenticate${0}
+snippet _err    模型验证错误
+	errors${0}
+snippet _efm    模型验证错误信息
+	errors.full_messages${0}
+# 常用变量
+snippet ses     SESSION
+	session${0}
+snippet coo     COOKIE
+	cookies${0}
+# 常用方法
+snippet _fi     index
+	def index
+	  ${0}
+	end
+snippet _fs     show
+	def show
+	  ${0}
+	end
+snippet _fn     new
+	def new
+	  ${0}
+	end
+snippet _fe     edit
+	def edit
+	  ${0}
+	end
+snippet _fc     create
+	def create
+	  ${0}
+	end
+snippet _fu     update
+	def update
+	  ${0}
+	end
+snippet _fd     destroy
+	def destroy
+	  ${0}
+	end
+# 常用代码片段
+snippet _crud   CRUD方法组
+	def index
+	  ${0}
+	end
+	
+	def show
+	end
+	
+	def new
+	end
+	
+	def edit
+	end
+	
+	def create
+	end
+	
+	def update
+	end
+	
+	def destroy
+	end
