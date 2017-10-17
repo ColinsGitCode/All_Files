@@ -1,9 +1,22 @@
-1,查看数据库
----> SHOW DATABASES;
-2,选择数据库
----> USE database_name;
-3,创建数据库
----> CREATE DATABASES new_database_name;
----> CREATE DATABASES IF NOT EXISTS new_database_name
-4,查看数据库的信息
----> SHOW CREATE DATABASE database_name;
+--> 1,查看数据库
+SHOW DATABASES;
+--> 2,选择数据库
+USE database_name;
+--> 3,创建数据库
+CREATE DATABASES new_database_name;
+CREATE DATABASES IF NOT EXISTS new_database_name;  --> 不确定这个数据库是否存在
+--> 4,查看数据库的信息
+SHOW CREATE DATABASE database_name;
+--> 5,删除一个已经确定存在的数据库
+DROP DATABASE database_name;
+DROP DATABASE IF NOT EXISTS database_name; --> 不确定是否存在这个数据库
+--> 6，查看存储引擎
+SHOW VARIABLES LIKE '%storage_engine%';
+SHOW ENGINES;
+--> 创建表时设置存储引擎
+CREATE TABLE `user` (
+  `id`     int(100) unsigned NOT NULL AUTO_INCREMENT,
+  `name`   varchar(32) NOT NULL DEFAULT '' COMMENT '姓名',
+  `mobile` varchar(20) NOT NULL DEFAULT '' COMMENT '手机',
+  PRIMARY KEY (`id`)
+)ENGINE=InnoDB;
