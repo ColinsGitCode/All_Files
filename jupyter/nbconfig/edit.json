@@ -1,0 +1,12 @@
+{
+  "Editor": {
+    "file_extension_modes": {
+      ".txt": "SQL"
+    }, 
+    "codemirror_options": {
+      "vimMode": true, 
+      "keyMap": "vim", 
+      "lineNumbers": true
+    }
+  }
+}

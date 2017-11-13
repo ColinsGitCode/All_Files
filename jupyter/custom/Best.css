@@ -1,0 +1,17 @@
+/*
+ * Placeholder for custom user CSS
+ *
+ * mainly to be overridden in profile/static/custom/custom.css
+ *
+ * This will always be an empty file in IPython
+ * */
+.CodeMirror pre {font-family: 'Consolas'; font-size: 10pt;}
+* {font-family: 'Consolas';}
+ div.output_area pre {font-family: 'Consolas'; font-size: 10pt;}
+ div.input_prompt {font-family: 'Consolas'; font-size: 10pt;}
+ div.out_prompt_overlay {font-family: 'Consolas'; font-size: 10pt;}
+ div.prompt {font-family: 'Consolas'; font-size: 10pt;}
+ span.cm-comment {font-family:  'Consolas' !important; font-style:normal !important; color:#FFAE3C !important;}
+ span.cm-property, span.cm-attribute {color: #FF0000;}
+ span.cm-variable {color: #0066FF !important;}
+ span.cm-operator {color: #CC6600 !important;}

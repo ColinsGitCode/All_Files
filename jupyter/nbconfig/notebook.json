@@ -1,0 +1,18 @@
+{
+  "keys": {
+    "command": {
+      "bind": {
+        "shift-a": "jupyter-notebook:run-all-cells"
+      }
+    }
+  },
+  "load_extensions": {
+    "execute_time/ExecuteTime": true,
+    "highlighter/highlighter": true,
+    "nbextensions_configurator/config_menu/main": true,
+    "vim_binding/vim_binding": true,
+    "contrib_nbextensions_help_item/main": true,
+    "autosavetime/main": true,
+    "varInspector/main": true
+  }
+}

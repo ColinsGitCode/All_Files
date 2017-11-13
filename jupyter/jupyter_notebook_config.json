@@ -1,0 +1,10 @@
+{
+  "NotebookApp": {
+    "server_extensions": [
+      "jupyter_nbextensions_configurator"
+    ],
+    "nbserver_extensions": {
+      "jupyter_nbextensions_configurator": true
+    }
+  }
+}
