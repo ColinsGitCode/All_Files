@@ -9,5 +9,7 @@ while(str != "0"):
     print("The Input Formula is : %s" %str)
     str.replace('□','x')
     str.replace('÷','/')
+    str.replace('＝','=')
+    str.replace('×','*')
     print("The Transfered Formula is : %s" %str)
     print(solve(str))
