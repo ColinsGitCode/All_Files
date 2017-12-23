@@ -26,3 +26,4 @@ while(str != "0"):
     #str.replace('×','*')
     print("The Transfered Formula is : %s" %str)
     print(solve(str))
+    print(solve(str).as_integer_ratio())
