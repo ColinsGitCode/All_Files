@@ -6,5 +6,8 @@ def solve(eq,var='x'):
 str = "1"
 while(str != "0"):
     str = input("Input Formula: ")
-    print("The Formula is : %s" %str)
+    print("The Input Formula is : %s" %str)
+    str.replace('□','x')
+    str.replace('÷','/')
+    print("The Transfered Formula is : %s" %str)
     print(solve(str))
