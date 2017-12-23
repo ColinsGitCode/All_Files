@@ -1,0 +1,10 @@
+def solve(eq,var='x'):
+  eq1 = eq.replace("=","-(")+")"
+  c = eval(eq1,{var:1j})
+  return -c.real/c.imag
+
+str = "1"
+while(str != "0"):
+    str = input("Input Formula: ")
+    print("The Formula is : %s" %str)
+    print(solve(str))
