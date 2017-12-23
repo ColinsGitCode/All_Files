@@ -5,6 +5,16 @@ def solve(eq,var='x'):
   c = eval(eq1,{var:1j})
   return -c.real/c.imag
 
+def GetFracPatt(Str):
+    Pat = re.compile('[1-9][0-9]*/[1-9][0-9]*')
+    Frac = Pat.findall(Str)
+    for ele in Frac:
+    newEle = '(' + ele + ')'
+    print(newEle)
+    strInfo1 = re.compile(ele)
+    Str = strInfo1.sub(newEle,Str)
+    return Str
+
 
 str = "1"
 while(str != "0"):
@@ -33,6 +43,7 @@ while(str != "0"):
     str = strInfo1.sub('*0.01',str)
     strInfo1 = re.compile('%')
     str = strInfo1.sub('*0.01',str)
+    str = GetFracPatt(str)
     print("The Transfered Formula is : %s" %str)
     if("=" in str):
         print(solve(str))
