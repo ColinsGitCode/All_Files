@@ -1,5 +1,6 @@
 import re
 from fractions import Fraction
+
 def solve(eq,var='x'):
   eq1 = eq.replace("=","-(")+")"
   c = eval(eq1,{var:1j})
@@ -9,10 +10,10 @@ def GetFracPatt(Str):
     Pat = re.compile('[1-9][0-9]*/[1-9][0-9]*')
     Frac = Pat.findall(Str)
     for ele in Frac:
-    newEle = '(' + ele + ')'
-    print(newEle)
-    strInfo1 = re.compile(ele)
-    Str = strInfo1.sub(newEle,Str)
+        newEle = '(' + ele + ')'
+        print(newEle)
+        strInfo1 = re.compile(ele)
+        Str = strInfo1.sub(newEle,Str)
     return Str
 
 
