@@ -18,6 +18,8 @@ while(str != "0"):
     str = strInfo1.sub('*',str)
     strInfo1 = re.compile('＋')
     str = strInfo1.sub('+',str)
+    strInfo1 = re.compile('－')
+    str = strInfo1.sub('-',str)
     #str.replace('□','x')
     #str.replace('÷','/')
     #str.replace('＝','=')
