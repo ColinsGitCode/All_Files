@@ -60,7 +60,7 @@ def EXPVALUE(STR):
     exp = STR + "#"
     result = expValue(exp)
     print('EXP : %d' % result)
-    print('EXP : %d' % result.as_integer_ratio())
+    print(result.as_integer_ratio())
 
 
 str = "1"
