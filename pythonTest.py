@@ -1,4 +1,5 @@
 import re
+from fractions import Fraction
 def solve(eq,var='x'):
   eq1 = eq.replace("=","-(")+")"
   c = eval(eq1,{var:1j})
@@ -27,3 +28,4 @@ while(str != "0"):
     print("The Transfered Formula is : %s" %str)
     print(solve(str))
     print(solve(str).as_integer_ratio())
+    print(Fraction(solve(str)))
