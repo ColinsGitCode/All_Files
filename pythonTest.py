@@ -59,8 +59,8 @@ def termValue(exp):
 def EXPVALUE(STR):
     exp = STR + "#"
     result = expValue(exp)
-    print('EXP : %d' % result)
-    print(result.as_integer_ratio())
+    print(result)
+    print(float(result).as_integer_ratio())
 
 
 str = "1"
