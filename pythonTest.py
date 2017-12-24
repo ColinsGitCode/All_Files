@@ -1,9 +1,15 @@
-import re
+from sympy import *
 from fractions import Fraction
+from sympy.parsing.sympy_parser import parse_expr
+import re
 
-def solve(eq,var='x'):
+def SLOVE(eq,var='x'):
   eq1 = eq.replace("=","-(")+")"
   c = eval(eq1,{var:1j})
+  print("Real is :")
+  print(c.real)
+  print("Imag is :")
+  print(c.imag)
   return -c.real/c.imag
 
 def GetFracPatt(Str):
@@ -16,11 +22,19 @@ def GetFracPatt(Str):
         Str = strInfo1.sub(newEle,Str)
     return Str
 
+def SympyRoot(Str):
+    Str = Str.replace("=","-(")+")"
+    print("The Transfered Formula is : %s" %Str)
+    Formula = parse_expr(Str,evaluate=0)
+    x = Symbol('x')
+    Result = solve(Formula,[x])
+    print(Result)
+    return Result[0]
+
 
 str = "1"
 while(str != "0"):
     str = input("Input Formula: ")
-    print("The Input Formula is : %s" %str)
     str = re.sub('\s','',str)
     strInfo1 = re.compile('（')
     str = strInfo1.sub('(',str)
@@ -47,13 +61,15 @@ while(str != "0"):
     str = GetFracPatt(str)
     print("The Transfered Formula is : %s" %str)
     if("=" in str):
-        print(solve(str))
-        print(solve(str).as_integer_ratio())
+#        print(solve(str))
+ #       print(solve(str).as_integer_ratio())
+        Root = SympyRoot(str)
+        print("----------------------------")
+        print(float(Root))
+        print(Root)
+        print("----------------------------")
     else:
         #EXPVALUE(str)
         print(eval(str))
         print(float(eval(str)).as_integer_ratio())
 
-
-
-    # print(Fraction(solve(str)))
