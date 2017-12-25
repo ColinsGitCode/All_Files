@@ -70,6 +70,8 @@ while(str != "0"):
         print("----------------------------")
     else:
         #EXPVALUE(str)
-        print(eval(str))
+        print("----------------------------")
         print(float(eval(str)).as_integer_ratio())
+        print(eval(str))
+        print("----------------------------")
 
