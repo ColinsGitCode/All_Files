@@ -1,0 +1,42 @@
+/*
+ * Placeholder for custom user CSS
+ *
+ * mainly to be overridden in profile/static/custom/custom.css
+ *
+ * This will always be an empty file in IPython
+ * */
+ 
+* {font-family: 'Consolas';}
+div.output_area pre {font-family: 'Consolas'; font-size: 10pt;}
+div.input_prompt {font-family: 'Consolas'; font-size: 10pt;}
+div.out_prompt_overlay {font-family: 'Consolas'; font-size: 10pt;}
+div.prompt {font-family: 'Consolas'; font-size: 10pt;}
+div.text_cell_render, div.output_html {color: #0066FF;} 
+
+.CodeMirror {font-family: 'Consolas'; background: #1e1e1e; color: #c3c3c3;}
+.CodeMirror-matchingbracket { text-decoration: underline; color: #c3c3c3 !important; }
+.CodeMirror-gutters {background: #1e1e1e; border-right: 0px;}
+.CodeMirror-linenumber {color: #5f5a60;}
+.CodeMirror-cursor {border-left: 3px solid #cf6a4c !important;}
+
+span.cm-comment {color: #9b703f !important;}
+span.cm-atom {color: #9b859d !important;}
+span.cm-number {color: #FF0000 !important;}
+
+span.cm-property, span.cm-attribute {color: #CC6600 !important;}
+span.cm-keyword {color: #0066FF !important;}
+span.cm-string {color: #f9ee98 !important;}
+span.cm-operator {color: #FF0000 !important;}
+span.cm-builtin {color: #9b859d !important;}
+
+span.cm-variable {color: #00DD00 !important;}
+span.cm-variable-2 {color: #0066FF !important;}
+span.cm-variable-3 {color: #00DD00 !important;}
+span.cm-def {color: #cda869 !important;}
+span.cm-error {background: #cf6a4c; color: #838184 !important;}
+span.cm-bracket {color: #a7a7a7 !important;}
+span.cm-tag {color: #cf6a4c !important;}
+span.cm-link {color: #9b859d !important;}
+
+.cm-s-default span.cm-variable {color: #7587A6}
+

@@ -61,8 +61,6 @@ while(str != "0"):
     str = GetFracPatt(str)
     print("The Transfered Formula is : %s" %str)
     if("=" in str):
-#        print(solve(str))
- #       print(solve(str).as_integer_ratio())
         Root = SympyRoot(str)
         print("----------------------------")
         print(float(Root))
